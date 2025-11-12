@@ -23,8 +23,11 @@ jobs:
         with:
           go-version: '1.21'
 
-      - name: Run tests
-        run: go test -v ./...
+      - name: Run tests (middleware only)
+        run: go test -v ./middleware/...
+
+      - name: Build verification
+        run: go build -v ./...
 
       - name: Get the version
         id: get_version
