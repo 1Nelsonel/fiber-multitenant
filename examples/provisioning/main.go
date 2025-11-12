@@ -295,7 +295,9 @@ func deactivateTenant(c *fiber.Ctx) error {
 	masterDB.Model(&tenant).Update("active", false)
 
 	// Optionally close tenant database connection
-	store.RemoveTenantDB(schema)
+	if err := store.RemoveTenantDB(schema); err != nil {
+		log.Printf("Warning: Failed to remove tenant DB connection: %v", err)
+	}
 
 	return c.JSON(fiber.Map{
 		"message": "Tenant deactivated successfully",

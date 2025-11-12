@@ -29,10 +29,10 @@ func (m *mockTenantStore) GetMasterDB() *gorm.DB {
 
 func TestSubdomainResolver(t *testing.T) {
 	tests := []struct {
-		name        string
-		host        string
-		wantTenant  string
-		wantError   bool
+		name       string
+		host       string
+		wantTenant string
+		wantError  bool
 	}{
 		{
 			name:       "Valid subdomain",

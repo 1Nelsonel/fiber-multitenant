@@ -26,7 +26,9 @@ linters-settings:
     check-type-assertions: true
 
   govet:
-    check-shadowing: true
+    enable-all: true
+    disable:
+      - fieldalignment  # Memory optimization hint, not critical
 
   gofmt:
     simplify: true
@@ -57,6 +59,7 @@ issues:
         - errcheck
 
 output:
-  format: colored-line-number
+  formats:
+    - format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
