@@ -37,7 +37,7 @@ func DefaultConfig(masterDSN string) *Config {
 	return &Config{
 		MasterDSN: masterDSN,
 		GetTenantDSN: func(tenantSchema string) string {
-			return masterDSN + fmt.Sprintf("&search_path=%s,public", tenantSchema)
+			return masterDSN + fmt.Sprintf(" search_path=%s,public", tenantSchema)
 		},
 		AutoMigrate:         true,
 		Models:              []interface{}{},

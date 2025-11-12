@@ -23,14 +23,24 @@ func SubdomainResolver(c *fiber.Ctx) (string, error) {
 
 	parts := strings.Split(host, ".")
 
-	// If we have at least 2 parts (subdomain.domain), extract subdomain
+	// Need at least 2 parts for a subdomain
+	// For localhost: tenant.localhost (2 parts is ok)
+	// For domains: tenant.example.com (3+ parts required)
 	if len(parts) >= 2 {
 		subdomain := parts[0]
 
 		// Filter out common non-tenant subdomains
-		if subdomain != "www" && subdomain != "api" && subdomain != "localhost" {
-			return subdomain, nil
+		if subdomain == "www" || subdomain == "api" || subdomain == "localhost" {
+			return "", fiber.NewError(fiber.StatusBadRequest, "No valid tenant subdomain found")
 		}
+
+		// For 2-part hosts, only accept if second part is "localhost"
+		if len(parts) == 2 && parts[1] != "localhost" {
+			return "", fiber.NewError(fiber.StatusBadRequest, "No valid tenant subdomain found")
+		}
+
+		// Valid subdomain found
+		return subdomain, nil
 	}
 
 	return "", fiber.NewError(fiber.StatusBadRequest, "No valid tenant subdomain found")

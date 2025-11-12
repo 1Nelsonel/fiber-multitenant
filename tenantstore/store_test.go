@@ -6,19 +6,17 @@ import (
 	"os"
 	"testing"
 	"time"
-
-	"gorm.io/gorm"
 )
 
 type TestModel struct {
-	ID   uint   `gorm:"primaryKey"`
+	ID   uint `gorm:"primaryKey"`
 	Name string
 }
 
 func getTestDSN() string {
 	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
-		dsn = "host=localhost user=postgres password=postgres dbname=multitenant_test port=5432 sslmode=disable"
+		dsn = "host=localhost user=postgres password=0101 dbname=multitenant_test port=5432 sslmode=disable"
 	}
 	return dsn
 }

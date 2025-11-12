@@ -22,9 +22,19 @@ If you find a bug or have a feature request:
 3. Make your changes
 4. Add tests for new functionality
 5. Ensure all tests pass (`go test ./...`)
-6. Commit with clear messages (`git commit -m 'Add amazing feature'`)
-7. Push to your fork (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
+6. Run linting: `golangci-lint run` (if installed)
+7. Commit with clear messages (`git commit -m 'Add amazing feature'`)
+8. Push to your fork (`git push origin feature/amazing-feature`)
+9. Open a Pull Request against the `main` branch
+10. Wait for CI/CD checks to pass
+11. Address any review comments
+12. Once approved, the maintainer will merge your PR
+
+**Important Notes:**
+- All PRs require passing CI/CD checks (tests, linting, security scans)
+- PRs must be reviewed and approved before merging
+- Only maintainers can merge PRs and create release tags
+- Breaking changes require discussion in an issue first
 
 ### Code Style
 

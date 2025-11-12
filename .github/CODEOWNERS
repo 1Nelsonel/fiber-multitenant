@@ -1,0 +1,17 @@
+# Default owner for everything in the repo
+# This ensures all PRs automatically request your review
+* @1Nelsonel
+
+# Specific component owners (all assigned to you)
+/middleware/ @1Nelsonel
+/tenantstore/ @1Nelsonel
+/examples/ @1Nelsonel
+
+# Documentation
+*.md @1Nelsonel
+/docs/ @1Nelsonel
+
+# CI/CD and Configuration
+/.github/ @1Nelsonel
+go.mod @1Nelsonel
+go.sum @1Nelsonel
