@@ -1,5 +1,12 @@
 # Fiber Multitenant
 
+[![Go Version](https://img.shields.io/github/go-mod/go-version/1Nelsonel/fiber-multitenant)](https://go.dev/)
+[![Go Report Card](https://goreportcard.com/badge/github.com/1Nelsonel/fiber-multitenant)](https://goreportcard.com/report/github.com/1Nelsonel/fiber-multitenant)
+[![CI](https://github.com/1Nelsonel/fiber-multitenant/workflows/CI/badge.svg)](https://github.com/1Nelsonel/fiber-multitenant/actions)
+[![GoDoc](https://pkg.go.dev/badge/github.com/1Nelsonel/fiber-multitenant)](https://pkg.go.dev/github.com/1Nelsonel/fiber-multitenant)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/github/v/release/1Nelsonel/fiber-multitenant)](https://github.com/1Nelsonel/fiber-multitenant/releases)
+
 A production-ready multitenancy solution for [Go Fiber](https://gofiber.io/) with PostgreSQL schema-based isolation using [GORM](https://gorm.io/).
 
 ## Features

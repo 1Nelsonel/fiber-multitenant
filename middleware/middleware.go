@@ -1,3 +1,39 @@
+// Package middleware provides Fiber middleware for multitenancy support.
+//
+// This package enables schema-based multitenancy in Go Fiber applications
+// using PostgreSQL. It provides automatic tenant resolution, connection
+// pooling, and seamless integration with GORM.
+//
+// Example usage:
+//
+//	import (
+//		"github.com/1Nelsonel/fiber-multitenant/middleware"
+//		"github.com/1Nelsonel/fiber-multitenant/tenantstore"
+//		"github.com/gofiber/fiber/v2"
+//	)
+//
+//	func main() {
+//		app := fiber.New()
+//
+//		// Configure tenant store
+//		config := tenantstore.DefaultConfig("postgres://...")
+//		store, _ := tenantstore.New(config)
+//
+//		// Add middleware
+//		app.Use(middleware.New(middleware.Config{
+//			Store: store,
+//		}))
+//
+//		// Use in handlers
+//		app.Get("/data", func(c *fiber.Ctx) error {
+//			tenant := middleware.GetTenant(c)
+//			db := middleware.GetTenantDB(c)
+//			// Query tenant-specific data
+//			return c.JSON(fiber.Map{"tenant": tenant})
+//		})
+//
+//		app.Listen(":3000")
+//	}
 package middleware
 
 import (

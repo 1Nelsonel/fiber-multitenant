@@ -1,3 +1,30 @@
+// Package tenantstore provides tenant database connection management for multitenancy.
+//
+// This package implements schema-based multitenancy for PostgreSQL using GORM.
+// It manages a pool of tenant-specific database connections, each configured with
+// the appropriate search_path to ensure data isolation.
+//
+// Example usage:
+//
+//	config := tenantstore.DefaultConfig("postgres://user:pass@localhost/dbname?sslmode=disable")
+//	config.AutoMigrate = true
+//	config.Models = []interface{}{&User{}, &Product{}}
+//
+//	store, err := tenantstore.New(config)
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//	defer store.Close()
+//
+//	// Get tenant database
+//	db, err := store.GetTenantDB("tenant1")
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	// Use tenant database
+//	var users []User
+//	db.Find(&users)
 package tenantstore
 
 import (
